@@ -15,7 +15,7 @@ public class ActorsService
 
     }
 
-    public void InsertActor(ActorsDetails actor)
+    public void InsertActor(localMoviesWebService.ActorsDetails actor) //מכניסה שחקן למאגר נתונים
     {
         string name = actor.Name;
 
@@ -43,7 +43,7 @@ public class ActorsService
 
     }
 
-    public int GetIDbyName(string name)
+    public int GetIDbyName(string name) //מקבלת שם ומחזירה את האיידי של השחקן
     {
         int id;
 
@@ -79,7 +79,7 @@ public class ActorsService
         return id;
     }
 
-    public void InsertActorInMovie(int movieID, int actorID)
+    public void InsertActorInMovie(int movieID, int actorID) //מכניס לטבלה משתמש בסרט שורה
     {
 
         OleDbCommand myCmd = new OleDbCommand("InsActorsInMovie", myConn);
@@ -108,7 +108,7 @@ public class ActorsService
         }
     }
 
-    public DataSet GetActors()
+    public DataSet GetActors() //מחזיר את כל השחקנים
     {
         OleDbCommand myCmd = new OleDbCommand("GetAllActors", myConn);
         myCmd.CommandType = CommandType.StoredProcedure;
@@ -130,7 +130,7 @@ public class ActorsService
         return ActorsTable;
     }
 
-    public string[] ActorsInMovie(int movieID)
+    public string[] ActorsInMovie(int movieID) //מקבל איידי של סרט ומחזיר את השחקנים במערך
     {
         DataSet Actors = new DataSet();
         OleDbCommand myCmd = new OleDbCommand("GetActorsInMovie", myConn);
@@ -166,4 +166,5 @@ public class ActorsService
         }
         return actorArr;
     }
+
 }
