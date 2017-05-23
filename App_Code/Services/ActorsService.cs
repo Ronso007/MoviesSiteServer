@@ -15,7 +15,7 @@ public class ActorsService
 
     }
 
-    public void InsertActor(localMoviesWebService.ActorsDetails actor) //מכניסה שחקן למאגר נתונים
+    public void InsertActor(ActorsDetails actor) //מכניסה שחקן למאגר נתונים
     {
         string name = actor.Name;
 
